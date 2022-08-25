@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block css %}<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='styles/results.css') }}"
+/><link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='styles/results_size.css') }}"
+/>{% endblock %} {% block title %} {{title}} {% endblock %} {% block
+main_content %}
+
+<div class="tile-container">
+  <div class="tile-wrapper">
+    {% for anime in animes %}
+    <a href="/anime?q={{ anime.get_name() }}" class="tile-item">
+      <img
+        src="{{ anime.get_info()['mal_stats']['main_picture']['large'] }}"
+        alt=""
+      />
+      <div class="tile-title">{{ anime.get_name() }}</div>
+    </a>
+    {% endfor %}
+  </div>
+  {% endblock %}
+</div>

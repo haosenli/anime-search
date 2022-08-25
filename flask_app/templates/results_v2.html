@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block css %}<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='styles/results_v2.css') }}"
+/><link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='styles/results_v2_size.css') }}"
+/>{% endblock %} {% block title %} {{title}} {% endblock %} {% block
+main_content %}
+
+<div class="tile-container">
+  <div class="tile-wrapper"></div>
+  <div class="tile-wrapper"></div>
+  <div class="tile-wrapper"></div>
+  <div class="tile-wrapper"></div>
+  <div class="tile-wrapper"></div>
+  <div class="tile-wrapper"></div>
+  <div class="tile-wrapper"></div>
+</div>
+
+{% endblock %}

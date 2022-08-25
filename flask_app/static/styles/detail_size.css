@@ -1,0 +1,207 @@
+/* TOP */
+/* width */
+@media (max-width: 1450px) {
+    .content-container {
+        width: 75rem;
+    }
+}
+
+@media (max-width: 1250px) {
+    .content-container {
+        width: 70rem;
+    }
+}
+
+@media (max-width: 1150px) {
+    .content-container {
+        width: 60rem;
+        padding: 2.5rem 2.6rem;
+    }
+    .top-side > * {
+        margin-left: 2.6rem;
+    }
+}
+
+@media (max-width: 990px) {
+    .content-container {
+        width: 50rem;
+        padding: 2rem 2.1rem;
+    }
+    .top-side > * {
+        margin-left: 2.1rem;
+    }
+}
+
+@media (max-width: 830px) {
+    .content-container {
+        width: 45rem;
+    }
+}
+
+@media (max-width: 750px) {
+    .content-container {
+        width: 38rem;
+        padding: 3rem 1rem;
+    }
+    .anime-info {
+        flex-direction: column;
+    }
+    .image img {
+        border-radius: 1rem;
+        object-fit: cover;
+        width: auto;
+        height: 22.5rem;
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 628px) {
+    .content-container {
+        width: 34rem;
+    }
+}
+
+@media (max-width: 570px) {
+    .content-container {
+        width: 29rem;
+    }
+}
+
+@media (max-width: 490px) {
+    .content-container {
+        width: 24rem;
+    }
+}
+
+/* if user goes below this they need a new device */
+@media (max-width: 400px) {
+    .content-container {
+        width: 20rem;
+        padding: 2rem 1rem;
+    }
+}
+
+/* height */
+@media (max-height: 860px) {
+    .anime-info > *, .image img {
+        height: 25rem;
+    }
+}
+
+@media (max-height: 750px) {
+    .anime-info > *, .image img {
+        height: 20rem;
+    }
+}
+
+
+@media (max-height: 660px) {
+    .anime-info > *, .image img {
+        height: 15rem;
+    }
+}
+
+/* if user goes below this they need a new device */
+@media (max-height: 570px) {
+    .anime-info > *, .image img  {
+        height: 10rem;
+    }
+}
+
+/* BOTTOM */
+@media (max-width: 1445px) {
+    .tile-container {
+        width: 71.5rem;
+    }
+    .tile-wrapper{
+        max-height: 700rem;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 1175px) {
+    .tile-container {
+        width: 54.1rem;
+    }
+    .tile-wrapper{
+        max-height: 940rem;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .tile-container {
+        width: 45rem;
+    }
+    .tile-wrapper{
+        max-height: 825rem;
+        gap: 1rem;
+    }
+    .tile-wrapper .tile-item{
+        width: 14rem;
+        padding: 0.8rem;
+        border-radius: 0.8rem;
+    }
+    .tile-item img{
+        border-radius: 0.5rem;
+        margin-bottom: 0.8rem;
+    }
+}
+
+@media (max-width: 770px) {
+    .tile-container {
+        width: 40rem;
+    }
+    .tile-wrapper{
+        max-height: 1000rem;
+        gap: 1rem;
+    }
+    .tile-wrapper .tile-item{
+        width: 12rem;
+        padding: 0.8rem;
+        border-radius: 0.8rem;
+    }
+    .tile-item img{
+        border-radius: 0.5rem;
+        margin-bottom: 0.8rem;
+    }
+}
+
+@media (max-width: 660px) {
+    .tile-container {
+        width: 28rem;
+    }
+    .tile-wrapper{
+        max-height: 1100rem;
+        gap: 1rem;
+    }
+    .tile-wrapper .tile-item{
+        width: 12rem;
+        padding: 0.8rem;
+        border-radius: 0.8rem;
+    }
+    .tile-item img{
+        border-radius: 0.5rem;
+        margin-bottom: 0.8rem;
+    }
+}
+
+/* if user goes below this they need a new device */
+@media (max-width: 440px) {
+    .tile-container {
+        width: 22rem;
+    }
+    .tile-wrapper{
+        max-height: 900rem;
+        gap: 1rem;
+    }
+    .tile-wrapper .tile-item{
+        width: 10rem;
+        padding: 0.5rem;
+        border-radius: 0.4rem;
+    }
+    .tile-item img{
+        border-radius: 0.4rem;
+        margin-bottom: 0.5rem;
+    }
+}

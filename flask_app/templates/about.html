@@ -1,0 +1,71 @@
+{% extends "base.html" %} {% block css %}<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='styles/contacts.css') }}"
+/><link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='styles/contacts_size.css') }}"
+/>{% endblock %} {% block title %} {{title}} {% endblock %} {% block
+main_content %}
+
+<div class="content-container">
+  <div id="about-header">
+    <h2>About Us</h2>
+  </div>
+  <div class="about">
+    <div>
+      <p>
+        AnimeSearch Ver. 0.1 released in August 2022, AnimeSearch is an
+        open-source search engine for all things anime. Currently, we have
+        support for over 11k+ animes using data aggregated from various
+        databases. The eventual goal of AnimeSearch is to be able to predict and
+        recommend animes based on user preferences and their watch trends.
+        AnimeSearch Ver. 0.1 has basic recommendation functionalities based on
+        an interconnected relationship between all of the animes inside our
+        database. More features are to come.
+      </p>
+    </div>
+  </div>
+  <div id="contacts-header">
+    <h2>Contacts</h2>
+  </div>
+  <div class="contact">
+    <div id="github">
+      <div id="github-header">
+        <h3>GitHub</h3>
+      </div>
+      <div>
+        <p>
+          If you would like to contribute to this project, please visit our
+          GitHub here!
+        </p>
+      </div>
+      <ul>
+        <li>
+          <a href="https://github.com/haosenli/individualized-search-engine" target="_blank"
+            >https://github.com/haosenli/individualized-search-engine</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div id="discord">
+      <div id="discord-header">
+        <h3>Discord</h3>
+      </div>
+      <p>
+        For another form of contact or to just hang out, check out our discord
+        server!
+      </p>
+      <ul>
+        <li>
+          <a href="https://discord.gg/KwQF3jPmrR" target="_blank"
+            >https://discord.gg/KwQF3jPmrR</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="closing">
+    <p>AnimeSearch, built by weebs for weebs.</p>
+  </div>
+</div>
+{% endblock %}
