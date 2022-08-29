@@ -1,12 +1,16 @@
-
 # for custom imports
 import sys # for import from parent directory
 import os # for import from parent directory
 current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
-from flask_app import app
+from flask import Flask
 
-# run
-print('Flask app is online.')
-app.run()
+
+# start flask app
+app = Flask(__name__)
+
+# get website routes
+from flask_app import routes
+
+app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))

@@ -10,7 +10,7 @@ from flask import render_template, url_for, redirect, request
 # custom imports
 from src.search_engine.search_engine import SearchEngine
 from src.utils.formatting import wordtrie_format
-from flask_app import app
+from run import app
 
 
 # instantiation
