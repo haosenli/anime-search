@@ -1,8 +1,9 @@
 body {
+    margin: 0px;
     width: 100vw;
     height: 100vh;
     background-color: #DF98FA;
-    background: radial-gradient(circle at 10% 15%, #FF6B00, #ff00dd 125rem);
+    background: radial-gradient(circle at 10% 15%, #ff8a37, #ff69eb 125rem);
 }
 
 .content-container {
@@ -14,18 +15,25 @@ body {
     margin-top: 1.2rem;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 7%);
 }
-
 ::selection{
     background-color: var(--trans-2);
+}
+
+.about div p, .contact p {
+    font-weight: 400;
 }
 
 a {
     text-decoration: none;
     color: var(--text-2);
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 a:hover {
     text-decoration: underline;
+    color: white;
 }
 
 h2 {
@@ -35,13 +43,14 @@ h2 {
 
 h2, h3 {
     color: var(--text-2);
+    font-size: 1.5rem;
     font-family: 'Poppins', sans-serif;
     margin-bottom: 0.5rem;
 }
 
 .contact{
     display: grid;
-    grid-template-columns: 30rem 30rem;
+    grid-template-columns: 1fr 1fr;
     justify-content: center;
     gap: 1rem;
 }
@@ -56,4 +65,10 @@ h2, h3 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    font-weight: 300;
+}
+
+.closing {
+    margin-top: 1.5rem;
+    font-size: larger;
 }

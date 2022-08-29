@@ -2,7 +2,7 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: #DF98FA;
-    background: radial-gradient(circle at 10% 15%, #FF6B00, #ff00dd 125rem);
+    background: radial-gradient(circle at 10% 15%, #ff964c, #ff69eb 125rem);
 }
 
 .content-container {

@@ -39,13 +39,13 @@ class SearchGraph:
             None.
         """
         # for graphs
-        self.graph = [] # 2D matrix
-        self.items = [] # stores SearchItem data
-        self.item_dict = {} # maps SearchItem names to index
+        self.graph: list[list[Number]] = [] # 2D matrix
+        self.items: list[SearchItem] = [] # stores SearchItem data
+        self.item_dict: dict[str, int] = {} # maps SearchItem names to index
         # for tags
-        self.tag_dict = {} # maps tag to index
-        self.tag_interest = [] # stores tags information
-        self.tag_item = [] # maps tag to SearchItem index
+        self.tag_dict: dict[str, int] = {} # maps tag to index
+        self.tag_interest: list[ItemInterest] = [] # stores tags information
+        self.tag_item: list[set[int]] = [] # maps tag to SearchItem index
         # for autocomplete
         self.words = WordTrie()
         # for sorting interests
@@ -54,7 +54,7 @@ class SearchGraph:
         if init_file:
             self.load_instance(init_file)
         
-    def __iter__(self) -> Iterator:
+    def __iter__(self) -> Iterator[SearchItem]:
         """Returns an iterator over all SearchItems."""
         return iter(self.items)
     
@@ -117,6 +117,9 @@ class SearchGraph:
         # sort by interest
         self.interests.add(size, -1 * item.get_interest())
         
+    def _add_item(self, data: tuple[SearchItem, Callable, Number]) -> None:
+        self.add_item(data[0], data[1], data[2])
+        
     def get_item_by_index(self, item_index: int) -> SearchItem:
         try:
             return self.items[item_index]
@@ -143,7 +146,7 @@ class SearchGraph:
                   f'item name {item_name} does not exist.')
             return None
     
-    def get_edges(self, item_index: int) -> Iterator:
+    def get_edges(self, item_index: int) -> Iterator[tuple[int, Number]]:
         """A generator function to iterate over edges from a given
         source name. 
         

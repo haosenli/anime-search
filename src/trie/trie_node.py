@@ -12,9 +12,8 @@ class TrieNode:
     """
     def __init__(self, 
                  letter: str, 
-                 children: Iterable=[], 
-                 is_word: bool=False,
-                 is_tag: bool=False) -> None:
+                 children: Iterable[TrieNode]=[], 
+                 is_word: bool=False) -> None:
         """Constructs a TrieNode object from the given data.
         
         Args:
@@ -28,7 +27,7 @@ class TrieNode:
             None.
         """
         self.letter: str = letter
-        self.children: dict = {}
+        self.children: dict[str, TrieNode] = {}
         self.is_word: bool = is_word
         # add children
         for child in children:
@@ -61,7 +60,7 @@ class TrieNode:
             return None
         return self.children[letter]
 
-    def get_children(self) -> set:
+    def get_children(self) -> set[TrieNode]:
         """Returns a set of children TrieNodes."""
         return self.children.values()
     

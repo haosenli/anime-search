@@ -48,7 +48,7 @@ class SearchEngine(SearchGraph):
                     'a new one using save_all_recommends().')
             
     async def search(self, query: str, 
-                     limit: int=100) -> list:
+                     limit: int=100) -> list[SearchItem]:
         """An awaitable function to search from from a str query,
         Returns a list of SearchItems.
         
@@ -80,13 +80,10 @@ class SearchEngine(SearchGraph):
                 item_index = self.get_item_index(item_name)
                 self.add_appearance(item_index)
                 results.append(item_index)
-        if results:
-            return self._extend_results(results, item_index, limit)
-        # no results
-        return results
+        return self._extend_results(results, item_index, limit)
     
     async def recommend(self, query: str, 
-                        limit: int=100) -> list:
+                        limit: int=100) -> list[SearchItem]:
         """An awaitable function, returns a list of recommended 
         SearchItems from a given search query.
         
@@ -107,7 +104,7 @@ class SearchEngine(SearchGraph):
         results = self._recommend(item_index, limit)
         return self._extend_results(results, item_index, limit)
             
-    def _recommend(self, item_index: int, limit: int) -> list:
+    def _recommend(self, item_index: int, limit: int) -> list[int]:
         """Returns recommendations for an item index, up to limit."""
         # use precomputed paths if available
         results = []
@@ -132,7 +129,7 @@ class SearchEngine(SearchGraph):
                 results.append(i)
         return results
     
-    def latest(self, limit: int=10) -> list:
+    def latest(self, limit: int=10) -> list[SearchItem]:
         """Returns a list of the newest-added SearchItems."""
         results = []
         for i in range(len(self)-1, len(self)-limit-1, -1):
@@ -142,7 +139,7 @@ class SearchEngine(SearchGraph):
                 break
         return results
     
-    def trending(self, limit: int=10) -> list:
+    def trending(self, limit: int=10) -> list[SearchItem]:
         """Returns a list of the highest-view count SearchItems."""
         results = []
         popped = []
@@ -156,9 +153,9 @@ class SearchEngine(SearchGraph):
             self.interests.add(item_index, item_interest)
         return results
     
-    def _extend_results(self, results: list,
+    def _extend_results(self, results: list[int],
                         item_index: int, 
-                        limit: int) -> list:
+                        limit: int) -> list[SearchItem]:
         """Extends the results until limit is reached."""
         # return if limit reached      
         if len(results) > limit:
@@ -178,7 +175,7 @@ class SearchEngine(SearchGraph):
                     
         return [self.get_item_by_index(k) for k in results] 
     
-    def parse_results(self, heap: MinHeap, limit: int) -> list:
+    def parse_results(self, heap: MinHeap, limit: int) -> list[SearchItem]:
         """Returns a list of search results from a MinHeap
         of SearchItems and an int limit."""
         results = []

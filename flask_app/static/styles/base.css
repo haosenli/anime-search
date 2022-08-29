@@ -3,9 +3,6 @@
     --transparent: rgba(0, 0, 0, 0%);
     --blur-1: blur(15px) saturate(160%) contrast(45%) brightness(140%);
     --blur-2: blur(20px) saturate(150%) contrast(45%) brightness(140%);
-    /* colors */
-    --bg-1: ;
-    --bg-2: ;
     /* text color */
     --text-1: white;
     --text-2: rgba(40, 40, 40);

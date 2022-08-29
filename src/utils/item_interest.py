@@ -44,5 +44,5 @@ class ItemInterest:
             A calculated float interest.
         """
         if custom_func is None:
-            return 5 * self.clicks + self.appears
+            return 100 * self.clicks + self.appears
         return custom_func(self.clicks, self.appears)
