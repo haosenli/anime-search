@@ -20,7 +20,7 @@ class SearchItem(ItemInterest):
     """
     def __init__(self, 
                  name: str,
-                 tags: set=None,
+                 tags: set[str]=None,
                  info: Any=None) -> None:
         """Constructs a new SearchItem with the given data.
         
@@ -61,7 +61,7 @@ class SearchItem(ItemInterest):
         """Returns the name for the SearchItem."""
         return self.name
     
-    def get_tags(self) -> set:
+    def get_tags(self) -> set[str]:
         """Returns a set of associated tags of the SearchItem."""
         return self.tags 
 
