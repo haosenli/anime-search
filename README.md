@@ -1,5 +1,6 @@
 # anime-search
 An open-source search engine for all things anime.
+Check it out here! www.animesearch.app
 
 # Tech stack
 - Python, Flask
