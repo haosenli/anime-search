@@ -18,8 +18,8 @@ app = Flask(__name__)
 
 # instantiation
 cwd = os.getcwd()
-SE_PATH = os.path.join(cwd, 'anime_search_engine/anime_search_engine_v3.pkl')
-PC_PATH = os.path.join(cwd, 'precomputed_v3')
+SE_PATH = os.path.join(cwd, 'website/anime_search_engine/anime_search_engine_v3.pkl')
+PC_PATH = os.path.join(cwd, 'website/precomputed_v3')
 SE = SearchEngine(SE_PATH, PC_PATH)
 
 @app.route('/', methods=['GET'])
@@ -31,7 +31,7 @@ async def empty():
 async def home():
     """Returns the home page of the app."""
     trending = SE.trending(250)
-    pic = trending[0].get_info()['mal_stats']['main_picture']['large']
+    pic = 'https://images.unsplash.com/photo-1554034483-04fda0d3507b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
     return render_template('results.html',
                            title='AnimeSearch | Home', 
                            pic=pic,
