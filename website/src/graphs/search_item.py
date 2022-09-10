@@ -73,3 +73,17 @@ class SearchItem(ItemInterest):
         """Adds tags to the SearchItem."""
         for tag in tags:
             self.tags.add(tag)
+    
+    def serialize(self) -> dict:
+        mal = self.info['mal_stats']
+        return {
+            'name': self.name,
+            'tags': list(self.tags),
+            'image': self.info['picture'],
+            'thumbnail': self.info['thumbnail'],
+            'mean': mal['mean'],
+            'num_scoring_users': mal['num_scoring_users'],
+            'rank': mal['rank'],
+            'popularity': mal['popularity'],
+            'synopsis': mal['synopsis'],
+        }
