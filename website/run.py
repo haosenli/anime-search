@@ -1,4 +1,5 @@
 # for custom imports
+from glob import glob
 import sys # for import from parent directory
 import os
 from urllib import request # for import from parent directory
@@ -21,6 +22,10 @@ cwd = os.getcwd()
 SE_PATH = os.path.join(cwd, 'website/anime_search_engine/anime_search_engine_v3.pkl')
 PC_PATH = os.path.join(cwd, 'website/precomputed_v3')
 SE = SearchEngine(SE_PATH, PC_PATH)
+HOME_CLICKS = 0
+SEARCH_CLICKS = 0
+ANIME_CLICKS = 0
+RANDOM_CLICKS = 0
 
 @app.route('/', methods=['GET'])
 async def empty():
@@ -30,6 +35,8 @@ async def empty():
 @app.route('/home/', methods=['Get'])
 async def home():
     """Returns the home page of the app."""
+    global HOME_CLICKS
+    HOME_CLICKS += 1
     trending = SE.trending(250)
     pic = 'https://images.unsplash.com/photo-1554034483-04fda0d3507b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
     return render_template('results.html',
@@ -41,6 +48,8 @@ async def home():
 async def search():
     """Returns the search results from the query."""
     # search
+    global SEARCH_CLICKS
+    SEARCH_CLICKS += 1
     query = request.args.get('q', None)
     animes = await SE.search(query, limit=250)
     if animes:
@@ -56,6 +65,8 @@ async def search():
 @app.route('/anime/', methods=['GET'])
 async def anime():
     """Returns an anime page."""
+    global ANIME_CLICKS
+    ANIME_CLICKS += 1
     name = request.args.get('q', None)
     wtf_name = wordtrie_format(name)
     item = SE.get_item(wtf_name)
@@ -75,6 +86,8 @@ async def anime():
 @app.route('/random/', methods=['GET'])
 async def random():
     """Returns a random anime page."""
+    global RANDOM_CLICKS
+    RANDOM_CLICKS += 1
     item = SE.random_item()
     item_name = item.get_name()
     recommends = await SE.recommend(item_name, limit=100)
@@ -112,6 +125,17 @@ async def api_search():
 @app.route('/api/random/', methods=['GET'])
 async def api_random():
     return jsonify(SE.random_item().serialize())
+
+@app.route('/api/stats/', methods=['GET'])
+async def api_stats():
+    """API endpoint to view website stats."""
+    global HOME_CLICKS, SEARCH_CLICKS, ANIME_CLICKS, RANDOM_CLICKS
+    return jsonify(
+        home_clicks=HOME_CLICKS,
+        search_clicks=SEARCH_CLICKS,
+        anime_clicks=ANIME_CLICKS,
+        random_clicks=RANDOM_CLICKS,
+    )
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
