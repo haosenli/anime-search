@@ -1,4 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# anime-offline-database
+# anime database
 /anime-offline-database
+/anime_search_engine
+/precomputed_v3
+/src

@@ -1,0 +1,27 @@
+#topNav {
+    /* colors */
+    background-color: #1f1f1f;
+    /* layout */
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+}
+
+#navContent {
+    /* layout */
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    align-items: center;
+}
+
+#sideExpand {
+    --size: 26px;
+    width: var(--size);
+    height: var(--size);
+    fill:rgba(255, 255, 255, 0.3);
+    margin: auto;
+}
+
+.navItem {
+    
+}
