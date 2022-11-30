@@ -1,0 +1,32 @@
+body {
+    background-color: black !important;
+    color: white !important;
+    height: 100vh; 
+    font-family: 'Open Sans', sans-serif;
+    overflow: hidden !important;
+}
+
+
+h1 {
+    /* font-family: 'Zilla Slab', sans-serif; */
+    font-size: 1.5rem !important;
+    font-weight: 300 !important;
+    padding-top: 0.5rem !important;
+}
+
+h2 {
+    font-size: 2.75rem !important;
+    font-weight: 300 !important;
+    margin-bottom: 1.5rem !important;
+    margin-top: 5rem !important;
+}
+
+p {
+    font-size: 1.25rem !important;
+    font-weight: 300 !important;
+}
+
+.date {
+    text-align: right;
+    font-size: 1.15rem !important;
+}
